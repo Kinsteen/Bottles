@@ -43,6 +43,7 @@ jobs:
           script: |
             var fs = require('fs');
             var issue_number = Number(fs.readFileSync('./pr-number'));
+            var pylint-result = String(fs.readFileSync('./pylint-result'));
             await github.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -50,7 +51,7 @@ jobs:
               body: `
             Pylint ran here: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             <details><summary>Pylint Result</summary>
-            <pre><code>${{ env.PYLINT_RES }}</code></pre>
+            <pre><code>${{ pylint-result }}</code></pre>
             </details>
               `
             });
