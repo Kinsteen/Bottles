@@ -42,7 +42,7 @@ jobs:
           cat pylint-result >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
 
-          echo "PR_NUMBER=$(cat pr-number)"
+          echo "PR_NUMBER=$(cat pr-number)" >> $GITHUB_ENV
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
         with:
