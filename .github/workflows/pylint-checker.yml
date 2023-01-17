@@ -23,7 +23,7 @@ jobs:
         diff=$(git diff --name-only origin/main | grep "\.py$")
         mkdir -p output
         (pylint $diff || true) 2>&1 | tr "*" "-" | grep -v "Instance of 'Child' has no '.*' member" > output/pylint-result
-        cat ./pylint-result
+        cat output/pylint-result
         echo ${{ github.event.number }} > output/pr-number
     - uses: actions/upload-artifact@v2
       with:
