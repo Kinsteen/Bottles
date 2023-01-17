@@ -47,10 +47,10 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: issue_number,
-              body: '
+              body: `
             Pylint ran here: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             <details><summary>Pylint Result</summary>
             <pre><code>${{ env.PYLINT_RES }}</code></pre>
             </details>
-              '
+              `
             });
