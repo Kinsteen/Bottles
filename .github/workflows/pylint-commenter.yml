@@ -49,9 +49,8 @@ jobs:
               repo: context.repo.repo,
               issue_number: issue_number,
               body: `
-            Pylint ran here: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-            <details><summary>Pylint Result</summary>
-            <pre><code>${{ pylint-result }}</code></pre>
+            <details><summary>Pylint result on modfied files:</summary>
+            <pre><code>${pylint-result}</code></pre>
             </details>
               `
             });
